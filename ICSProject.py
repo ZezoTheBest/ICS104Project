@@ -22,9 +22,7 @@ def menu():
     # A line signaling the end of the menu
     print(" " * 17 + 90 * "_")
 
-#class Game:
-    #with open("Games.txt", "r+") as file:
-        #def __init__(self):
+
 
 
 
@@ -49,23 +47,23 @@ def add_game():
     try:
         game_rating = float(input("Please enter the rating from 1 to 10\n"))
         if not 1 <= float(game_rating) <= 10:
-            raise TypeError
-    except TypeError:
+            raise ValueError
+    except ValueError:
         print("The game rating should be a number between one and 10")
         return
 
     num_of_reviews = input("Enter the number of game reviews:\n")
-    if not num_of_reviews.isnumeric():
+    if not num_of_reviews.isdigit():
         print("The number of reviews must contain of digits only!")
         return
 
     price = input("Enter the price of the game:\n")
-    if not price.isnumeric():
+    if not price.isdigit():
         print("The price should contain digits only!")
         return
 
     year = input("Enter the year in which the game has been released:\n")
-    if not year.isnumeric():
+    if not year.isdigit():
         print("The year needs to be in digits!")
         return
     elif int(year) > 2022:
@@ -97,11 +95,11 @@ def update_game():
 
         if game_rating_change.lower() == "y":
             try:
-                game_rating = float(input("Please enter the new rating from 1 to 10\n"))
+                game_rating = float(input("Please enter the new rating from 1 to 10:\n"))
                 if not 1 <= float(game_rating) <= 10:
                     raise TypeError
             except TypeError:
-                print("The game rating should be a number between one and 10")
+                print("The game rating should be a number between one and 10.")
                 return
             game_dict[game_id][3] = str(game_rating)
 
@@ -143,172 +141,109 @@ def update_game():
     print("The Game ID does not exist!")
     return
 
+def sortbyID(dictionary):
+    sorted_dictionary = dict(sorted(dictionary.items()))
+    return sorted_dictionary
+def sortbyName(dictionary):
+    sorted_dictionary = dict(sorted(dictionary.items(),key= lambda value : value[1][0]))
+    return sorted_dictionary
+def sortbyGenre(dictionary):
+    sorted_dictionary = dict(sorted(dictionary.items(), key= lambda value : value[1][6]))
+    return sorted_dictionary
+def sortByRating(dictionary):
+    sorted_dictionary = dict(sorted(dictionary.items(), key= lambda value: float(value[1][2]) ,reverse= True))
+    return sorted_dictionary
 
-def display_data():
+def entry(times):
+    for i in range(times):
+        print("|" + " "*17, end = " ")
+    print("|")
 
+def content_line(element,dictionary):
+    print("|"+element.center(18), end = "|")
+    values = dictionary[element]
 
-    titles = ['GameID','GameName','GameDeveloper','GamerRating','NumOfReviews','Price','Year','Genre']
-    
-    
-    width = 0
-    for title in titles:
-        width += len(title) + 3
-    width += 3
-    
-    print("━"*width)
-    print('\033[1m', end ="")
-    for title in titles:
-        print('│ %s '%(title), end ="")
-    
-    print("  │")
-    print('\033[0m', end="")
-    
-        
-    for key in game_dict:
-            
-            print("━"*width)
-            print('│ %-7s'%(key), end ="")
-            spaces0 = 9
-            spaces1 = 14
-            value0 = game_dict[key][0]
-            value1 = game_dict[key][1]            
-            if len(value0) > spaces0 and len(value1) > spaces1:
+    for value in values:
 
-                for i in range(7):
-                    if i == 0: 
-                        print("│ %-9s"%value0[:spaces0], end ="")
-                        
-                    elif i == 1:
-                        print("│ %-14s"%value1[:spaces1], end ="")
-                    elif i == 2:
-                        print("│ %-12s"%(game_dict[key][i]), end = "")
-                    elif i == 3:
-                        print("│ %-13s"%(game_dict[key][i]), end = "")
-                    elif i == 4:
-                        game_dict[key][i] = float(game_dict[key][i])
-                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
-                    elif i == 5:
-                        print("│ %-5s"%(game_dict[key][i]), end = "")
-                    else:
-                        print("│ %-6s   "%(game_dict[key][i]), end="")   
-                print()
-                try:
-                    print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0:spaces0*2]), (value1[spaces1:spaces1*2])))
-                    try:
-                        print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*2:spaces0*3]), (value1[spaces1*2:spaces1*3])))
-                        try:
-                            print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*3:spaces0*4]), (value1[spaces1*3:spaces1*4])))
-                            try:
-                                print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*4:]), (value1[spaces1*4:])))
-                            except:
-                                pass
-                        except:
-                            print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*3:]), (value1[spaces1*3:])))                       
-                    except:
-                        print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*2:]), (value1[spaces1*2:])))
-                    
-                except:
-                    print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0:]), (value1[spaces1:])))
-            
-            elif len(value0) > spaces0:
-                for i in range(7):
-                    if i == 0: 
-                        print("│ %-9s"%value0[:spaces0], end ="")
-                            
-                    elif i == 1:
-                        print("│ %-14s"%value1[:], end ="")
-                    elif i == 2:
-                        print("│ %-12s"%(game_dict[key][i]), end = "")
-                    elif i == 3:
-                        print("│ %-13s"%(game_dict[key][i]), end = "")
-                    elif i == 4:
-                        game_dict[key][i] = float(game_dict[key][i])
-                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
-                    elif i == 5:
-                        print("│ %-5s"%(game_dict[key][i]), end = "")
-                    else:
-                        print("│ %-6s   "%(game_dict[key][i]), end="")  
-                print()
-                try:
-                    print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0:spaces0*2])))
-                    try:
-                        print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*2:spaces0*3])))
-                        try:
-                            print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*3:spaces0*4])))
-                            try:
-                                print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*4:])))
-                            except:
-                                pass
-                        
-                        except:
-                            print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces*3:])))                   
-                    except:
-                        print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*2:])))
-                except:
-                    print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0:])))
-                                              
-                        
-            elif len(value1) > spaces1:
-                for i in range(7):
-                    if i == 0: 
-                        print("│ %-9s"%value0[:], end ="")
+        index = values.index(value)
 
-                    elif i == 1:
-                        print("│ %-14s"%value1[:spaces1], end = "")                        
-                    elif i == 2:
-                        print("│ %-12s"%(game_dict[key][i]), end = "")
-                    elif i == 3:
-                        print("│ %-13s"%(game_dict[key][i]), end = "")
-                    elif i == 4:
-                        game_dict[key][i] = float(game_dict[key][i])
-                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
-                    elif i == 5:
-                        print("│ %-5s"%(game_dict[key][i]), end = "")
-                    else:
-                        print("│ %-6s   "%(game_dict[key][i]), end="")
-                print()
-                try:
-                    print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1:spaces1*2])))
-                    try:
-                        print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*2:spaces1*3]))) 
-                        try:
-                            print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*3:spaces1*4]))) 
-                            try:
-                                print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*4:])))
-                            except:
-                                pass
-                        except:
-                            print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*3:])))                   
-                    except:
-                        print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*2:])))
-                except:
-                    print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1:])))
-                                                            
+        while len(value) > 18:
+            print(value[:18] , end = "")
+            entry(8 - index - 2)
+            value = value[18:]
+            #print("|" +" "*(19*(index+1) - 1),end = "|")
+            print("|" , end = "")
+            for space in range(index + 1):
+                print(" "* 18, end = "|")
+
+        else:
+            if index + 1 == len(values):
+                print(value.center(18), end = "")
             else:
-                for i in range(7):
-                    if i == 0:
-                        print("│ %-9s"%value0[:], end ="")
-                    elif i == 1:
-                        print("│ %-14s"%value1[:], end ="")
-                    elif i == 2:
-                        print("│ %-12s"%(game_dict[key][i]), end = "")
-                    elif i == 3:
-                        print("│ %-13s"%(game_dict[key][i]), end = "")
-                    elif i == 4:
-                        game_dict[key][i] = float(game_dict[key][i])
-                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
-                    elif i == 5:
-                        print("│ %-5s"%(game_dict[key][i]), end = "")
-                    else:
-                        print("│ %-6s   "%(game_dict[key][i]))
+                print(value.center(18), end="|")
 
-            
+def displayTable(dictionary):
+    header_list = ["GameID", "GameName", "GameDeveloper", "GamerRating", "NumOfReviews", "Price", "Year", "Genre"]
 
-                         
+    print("\033[1m", end="")
+    print("-" * 153)
+    for header in header_list:
+        print("|" + header.center(18), end="")
 
-            
+    print("|")
+    print("-" * 153, end="")
+    print("\033[0m")
+    for element in dictionary:
+        entry(8)
+        entry(8)
+        content_line(element,game_dict)
+        entry(8)
+        entry(8)
+        entry(8)
+        print("-" * 153)
 
-    print("━"*width)
+
+def top_games_in_years(noOfGames,years_back,dictionary):
+    new_dict = {}
+    new_dict_no_of_games = 0
+    for key in sortByRating(dictionary):
+        if  (2022 - years_back) <= int(dictionary[key][5]) <= 2022:
+            new_dict[key] = sortByRating(dictionary)[key]
+            new_dict_no_of_games += 1
+            if new_dict_no_of_games == noOfGames:
+                break
+    return new_dict
+
+def games_price_per_year(year,dictionary):
+        if type(year) == int:
+            year = str(year)
+        total_price = 0
+        for key in dictionary:
+            if dictionary[key][5] == year:
+                total_price += float(dictionary[key][4])
+        return round(total_price,3)
+
+def avrg_games_prices_per_year(year,dictionary):
+    if type(year) == int:
+        year = str(year)
+    total_price = 0
+    total_games = 0
+    for key in dictionary:
+        if dictionary[key][5] == year:
+            total_price += float(dictionary[key][4])
+            total_games += 1
+    return round(total_price / total_games,3)
+
+def sorted_game_by_year_by_genre(year,genre,dictionary):
+    if type(year) == int:
+        year = str(year)
+    new_dict = {}
+    for key in dictionary:
+        if dictionary[key][5] == year and dictionary[key][6] == genre:
+            new_dict[key] = dictionary[key]
+    return sortbyID(new_dict)
+
+
 
 
 
@@ -325,10 +260,71 @@ def main():
             update_game()
 
         elif command == "3":
-            display_data()
+            sort_method = input("""Before displaying the table,how do you want to sort it?:
+            \n1-By GameID
+            \n2-By Game Name
+            \n3-By Genre\n""")
+
+            if sort_method == "1":
+                displayTable(sortbyID(game_dict))
+            elif sort_method == "2":
+                displayTable(sortbyName(game_dict))
+            elif sort_method == "3":
+                displayTable(sortbyGenre(game_dict))
+            else:
+                print("Please enter 1, 2, or 3 only.")
+
+
 
         elif command == "4":
-            pass
+            category = input("""Choose one of the following to display:\n
+            1-View top 50 selling Games in last 10 years\n
+            2-Print Total Price for all Games per Year.\n
+            3-Print Average Price of all Games per Year.\n
+            4-View sorted list of Games (by GameID) for a given year for a given Genre\n""")
+            if category == "1":
+                displayTable(top_games_in_years(50,10,game_dict))
+
+            elif category == "2":
+                year = input("Please enter a year:\n")
+                if year.isdigit():
+                    if int(year) <= 2022:
+                        print(games_price_per_year(year,game_dict))
+                    else:
+                        print("The year should be less than 2023.")
+                else:
+                    print("Only enter the year in numbers.")
+
+            elif category == "3":
+                year = input("Please enter a year:\n")
+                if year.isdigit():
+                    if int(year) <= 2022:
+                        print(avrg_games_prices_per_year(year, game_dict))
+                    else:
+                        print("The year should be less than 2023.")
+                else:
+                    print("Only enter the year in numbers.")
+
+            elif category == "4":
+                year = input("Please enter a year:\n")
+                if not year.isdigit():
+                    print("Only enter the year in numbers.")
+
+                else:
+                    if int(year) <= 2022:
+
+                        genre = input("Please enter a genre:\n")
+
+                        if genre.isalpha():
+                            genre = genre.capitalize()
+                            displayTable(sorted_game_by_year_by_genre(year, genre, game_dict))
+                        else:
+                            print("Please enter a valid genre format.")
+                    else:
+                        print("The year should be less than 2023.")
+
+            else:
+                print("Please enter a number from 1 to 4.")
 
         elif command == "5":
             pass
@@ -341,11 +337,13 @@ def main():
 
 
 with open("Games.txt","r+") as games_file:
+    try:
+        game_dict = {}
+        for line in games_file.readlines():
+            game_dict[line.split("\t")[0]] = line.split("\t")[1:8]
+        main()
 
-    game_dict = {}
-    for line in games_file.readlines():
-        game_dict[line.split("\t")[0]] = line.split("\t")[1:]
-
-    main()
+    except UnicodeDecodeError:
+        print("You have quit the program !")
 
 
