@@ -144,6 +144,171 @@ def update_game():
     return
 
 
+def display_data():
+
+
+    titles = ['GameID','GameName','GameDeveloper','GamerRating','NumOfReviews','Price','Year','Genre']
+    
+    
+    width = 0
+    for title in titles:
+        width += len(title) + 3
+    width += 3
+    
+    print("━"*width)
+    print('\033[1m', end ="")
+    for title in titles:
+        print('│ %s '%(title), end ="")
+    
+    print("  │")
+    print('\033[0m', end="")
+    
+        
+    for key in game_dict:
+            
+            print("━"*width)
+            print('│ %-7s'%(key), end ="")
+            spaces0 = 9
+            spaces1 = 14
+            value0 = game_dict[key][0]
+            value1 = game_dict[key][1]            
+            if len(value0) > spaces0 and len(value1) > spaces1:
+
+                for i in range(7):
+                    if i == 0: 
+                        print("│ %-9s"%value0[:spaces0], end ="")
+                        
+                    elif i == 1:
+                        print("│ %-14s"%value1[:spaces1], end ="")
+                    elif i == 2:
+                        print("│ %-12s"%(game_dict[key][i]), end = "")
+                    elif i == 3:
+                        print("│ %-13s"%(game_dict[key][i]), end = "")
+                    elif i == 4:
+                        game_dict[key][i] = float(game_dict[key][i])
+                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
+                    elif i == 5:
+                        print("│ %-5s"%(game_dict[key][i]), end = "")
+                    else:
+                        print("│ %-6s   "%(game_dict[key][i]), end="")   
+                print()
+                try:
+                    print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0:spaces0*2]), (value1[spaces1:spaces1*2])))
+                    try:
+                        print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*2:spaces0*3]), (value1[spaces1*2:spaces1*3])))
+                        try:
+                            print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*3:spaces0*4]), (value1[spaces1*3:spaces1*4])))
+                            try:
+                                print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*4:]), (value1[spaces1*4:])))
+                            except:
+                                pass
+                        except:
+                            print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*3:]), (value1[spaces1*3:])))                       
+                    except:
+                        print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0*2:]), (value1[spaces1*2:])))
+                    
+                except:
+                    print("│        │ %-9s│ %-14s│             │              │       │      │          "%((value0[spaces0:]), (value1[spaces1:])))
+            
+            elif len(value0) > spaces0:
+                for i in range(7):
+                    if i == 0: 
+                        print("│ %-9s"%value0[:spaces0], end ="")
+                            
+                    elif i == 1:
+                        print("│ %-14s"%value1[:], end ="")
+                    elif i == 2:
+                        print("│ %-12s"%(game_dict[key][i]), end = "")
+                    elif i == 3:
+                        print("│ %-13s"%(game_dict[key][i]), end = "")
+                    elif i == 4:
+                        game_dict[key][i] = float(game_dict[key][i])
+                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
+                    elif i == 5:
+                        print("│ %-5s"%(game_dict[key][i]), end = "")
+                    else:
+                        print("│ %-6s   "%(game_dict[key][i]), end="")  
+                print()
+                try:
+                    print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0:spaces0*2])))
+                    try:
+                        print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*2:spaces0*3])))
+                        try:
+                            print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*3:spaces0*4])))
+                            try:
+                                print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*4:])))
+                            except:
+                                pass
+                        
+                        except:
+                            print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces*3:])))                   
+                    except:
+                        print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0*2:])))
+                except:
+                    print("│        │ %-9s│               │             │              │       │      │          "%((value0[spaces0:])))
+                                              
+                        
+            elif len(value1) > spaces1:
+                for i in range(7):
+                    if i == 0: 
+                        print("│ %-9s"%value0[:], end ="")
+
+                    elif i == 1:
+                        print("│ %-14s"%value1[:spaces1], end = "")                        
+                    elif i == 2:
+                        print("│ %-12s"%(game_dict[key][i]), end = "")
+                    elif i == 3:
+                        print("│ %-13s"%(game_dict[key][i]), end = "")
+                    elif i == 4:
+                        game_dict[key][i] = float(game_dict[key][i])
+                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
+                    elif i == 5:
+                        print("│ %-5s"%(game_dict[key][i]), end = "")
+                    else:
+                        print("│ %-6s   "%(game_dict[key][i]), end="")
+                print()
+                try:
+                    print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1:spaces1*2])))
+                    try:
+                        print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*2:spaces1*3]))) 
+                        try:
+                            print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*3:spaces1*4]))) 
+                            try:
+                                print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*4:])))
+                            except:
+                                pass
+                        except:
+                            print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*3:])))                   
+                    except:
+                        print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1*2:])))
+                except:
+                    print("│        │          │ %-14s│             │              │       │      │          "%((value1[spaces1:])))
+                                                            
+            else:
+                for i in range(7):
+                    if i == 0:
+                        print("│ %-9s"%value0[:], end ="")
+                    elif i == 1:
+                        print("│ %-14s"%value1[:], end ="")
+                    elif i == 2:
+                        print("│ %-12s"%(game_dict[key][i]), end = "")
+                    elif i == 3:
+                        print("│ %-13s"%(game_dict[key][i]), end = "")
+                    elif i == 4:
+                        game_dict[key][i] = float(game_dict[key][i])
+                        print("│ %-6.0f"%(game_dict[key][i]), end = "")
+                    elif i == 5:
+                        print("│ %-5s"%(game_dict[key][i]), end = "")
+                    else:
+                        print("│ %-6s   "%(game_dict[key][i]))
+
+            
+
+                         
+
+            
+
+    print("━"*width)
 
 
 
@@ -160,7 +325,7 @@ def main():
             update_game()
 
         elif command == "3":
-            pass
+            display_data()
 
         elif command == "4":
             pass
