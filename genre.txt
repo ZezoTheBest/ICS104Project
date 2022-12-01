@@ -1,0 +1,11 @@
+10001 Wii Sports Nintendo 8 9.0 9 99 Sports 
+10003 Wii Sports Resort Nintendo 8 192 223.1664057 2009 Sports 
+10008 Wii Fit Nintendo 7.7 146 344.7661151 2007 Sports 
+10010 Wii Fit Plus Nintendo 7.4 52 0.397820599 2009 Sports 
+10052 FIFA 16 EA Sports 4.3 896 293.1465854 2015 Sports 
+10063 FIFA 17 "EA Sports, EA Vancouver" 5 398 337.2837362 2016 Sports 
+10081 Zumba Fitness "Pipeworks Software, Inc." 4.6 456 404.8434764 2010 Sports 
+10084 FIFA 12 EA sports 8.8 789 352.9273624 2011 Sports 
+10088 FIFA 14 EA Canada 4.3 576 481.0411969 2013 Sports 
+10101 Kinect Sports Rare Ltd. 7.4 95 45.37478613 2010 Sports 
+10103 FIFA 15 EA Sports 5.7 988 83.97595124 2014 Sports 

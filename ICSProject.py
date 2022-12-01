@@ -244,6 +244,22 @@ def sorted_game_by_year_by_genre(year,genre,dictionary):
     return sortbyID(new_dict)
 
 
+def saving_in_new_file():
+    genre = input("Which genre do you want to save to a new file? ")
+    genre_dict = {}
+    for key in game_dict:
+        if genre.lower() == game_dict[key][6].lower():
+            genre_dict[key] = game_dict[key]
+    if len(genre_dict) == 0:
+        print("The genre you selected is not found.")
+        
+    else:
+        with open("genre.txt", "w") as new_file:
+            for key in genre_dict:
+                new_file.write("%s "%key)
+                for i in range(7):
+                    new_file.write("%s "%genre_dict[key][i])
+                new_file.write("\n")
 
 
 
@@ -327,7 +343,7 @@ def main():
                 print("Please enter a number from 1 to 4.")
 
         elif command == "5":
-            pass
+            saving_in_new_file()
 
         elif command.lower() == "q":
             done = True
