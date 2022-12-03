@@ -244,8 +244,7 @@ def sorted_game_by_year_by_genre(year,genre,dictionary):
     return sortbyID(new_dict)
 
 
-def saving_in_new_file():
-    genre = input("Which genre do you want to save to a new file?\n")
+def saving_in_new_file(genre):
     genre_dict = {}
     for key in game_dict:
         if genre.lower() == game_dict[key][6].lower():
@@ -344,7 +343,8 @@ def main():
                 print("Please enter a number from 1 to 4.")
 
         elif command == "5":
-            saving_in_new_file()
+            genre = input("Which genre do you want to save to a new file?\n")
+            saving_in_new_file(genre)
 
         elif command.lower() == "q":
             done = True
