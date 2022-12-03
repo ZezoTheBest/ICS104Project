@@ -168,10 +168,10 @@ def content_line(element,dictionary):
         index = values.index(value)
 
         while len(value) > 18:
-            print(value[:18] , end = "")
+            print(value[:18], end = "")
             entry(8 - index - 2)
             value = value[18:]
-            #print("|" +" "*(19*(index+1) - 1),end = "|")
+
             print("|" , end = "")
             for space in range(index + 1):
                 print(" "* 18, end = "|")
