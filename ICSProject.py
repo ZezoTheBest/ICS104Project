@@ -1,10 +1,10 @@
 # This work done by group RandomNameGenerator:
 # Ziad Tariq Al Alami, 202271820, 77, 50%
-# Omar Abdullah, 202259760, 77, 50%
+# Omar Bahaeldin Abdalla, 202259760, 77, 50%
 
 
 
-#This function displays a nicely formatted for the user. These print functions are placed in a function to avoid repetetion.
+#This function displays a nicely formatted for the user. These print functions are placed in a function to avoid repetition.
 def menu():
 
     #prints a bold title for the menu
