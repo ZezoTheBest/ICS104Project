@@ -1,4 +1,4 @@
-10001	Wii Sports	Nintendo	8	9.0	9	99	Sports	
+10001	Wii Sports	Nintendo	8	322	342.0068976	2006	Sports	
 10002	Mario Kart Wii	Nintendo	8.3	709	435.5094464	2008	Racing	
 10003	Wii Sports Resort	Nintendo	8	192	223.1664057	2009	Sports	
 10004	New Super Mario Bros.	Nintendo	8.5	431	285.124954	2006	Platform	
@@ -26,7 +26,7 @@
 10026	Mario Kart 7	"Retro Studios, Entertainment Analysis & Development Division"	8.2	632	243.1259612	2011	Racing	
 10027	Call of Duty: Black Ops	Treyarch	6.4	1094	30.85684218	2010	Shooter	
 10028	Grand Theft Auto V	Rockstar North	8.3	2899	58.89319573	2014	Action	
-10029	Animal Crossing: Wild World	Nintendo	8.7	9.0	221.9713246	2005	Simulation	
+10029	Animal Crossing: Wild World	Nintendo	8.7	242	221.9713246	2005	Simulation	
 10030	Halo 3	"Bungie Software, Bungie"	7.8	4100	335.0616543	2007	Shooter	
 10031	Gran Turismo 4	Polyphony Digital	8.5	272	114.8828153	2004	Racing	
 10032	Super Mario Galaxy	Nintendo	8.9	2147	254.8468691	2007	Platform	
@@ -120,4 +120,6 @@
 10123	Monster Hunter Freedom Unite	Capcom	8.7	124	271.9706679	2008	Role-Playing	
 10124	Batman: Arkham City	Rocksteady Studios	8.6	2162	438.4329791	2011	Action	
 10125	Grand Theft Auto V	Rockstar North	7.9	764	392.9417446	2014	Action	
-10126	Mario Kart: Super Circuit	Intelligent Systems	8.3	108	177.3247683	2001	Racing
+10126	Mario Kart: Super Circuit	Intelligent Systems	8.3	108	177.3247683	2001	Racing	
+10127	Agar.io	Nintendo	7.5	9.0	15	5	Action	
+10128	Agar.io	Nintendo	7.5	2190	2100	2018	Action	

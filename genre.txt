@@ -1,13 +1,11 @@
-10043 Final Fantasy VII	SquareSoft	9.2	1282	391.4718207	1997	Role-Playing	
-10051 The Elder Scrolls V: Skyrim	Bethesda Game Studios	8.4	3589	200.1608189	2011	Role-Playing	
-10057 Final Fantasy X	SquareSoft	8.7	1056	473.8150861	2001	Role-Playing	
-10059 Final Fantasy VIII	SquareSoft	8.6	644	11.06143543	1999	Role-Playing	
-10060 PokÃ©mon Platinum Version	Game Freak	8.5	203	448.384734	2008	Role-Playing	
-10070 Fallout 4	Bethesda Game Studios	6.5	4228	30.0861804	2015	Role-Playing	
-10092 The Elder Scrolls V: Skyrim	Bethesda Game Studios	6.4	2527	495.7427419	2011	Role-Playing	
-10093 PokÃ©mon Emerald Version	Game Freak	9	222	374.7293321	2004	Role-Playing	
-10094 Kingdom Hearts	SquareSoft	8.8	597	474.694164	2002	Role-Playing	
-10098 World of Warcraft	Blizzard Entertainment	7.3	2182	283.0878659	2004	Role-Playing	
-10108 Final Fantasy XII	Square Enix	7.6	972	25.97274909	2006	Role-Playing	
-10112 Dragon Quest IX: Sentinels of the Starry Skies	Level 5	8.8	197	35.08932039	2009	Role-Playing	
-10123 Monster Hunter Freedom Unite	Capcom	8.7	124	271.9706679	2008	Role-Playing	
+10001 Wii Sports	Nintendo	8	322	342.0068976	2006	Sports	
+10003 Wii Sports Resort	Nintendo	8	192	223.1664057	2009	Sports	
+10008 Wii Fit	Nintendo	7.7	146	344.7661151	2007	Sports	
+10010 Wii Fit Plus	Nintendo	7.4	52	0.397820599	2009	Sports	
+10052 FIFA 16	EA Sports	4.3	896	293.1465854	2015	Sports	
+10063 FIFA 17	"EA Sports, EA Vancouver"	5	398	337.2837362	2016	Sports	
+10081 Zumba Fitness	"Pipeworks Software, Inc."	4.6	456	404.8434764	2010	Sports	
+10084 FIFA 12	EA sports	8.8	789	352.9273624	2011	Sports	
+10088 FIFA 14	EA Canada	4.3	576	481.0411969	2013	Sports	
+10101 Kinect Sports	Rare Ltd.	7.4	95	45.37478613	2010	Sports	
+10103 FIFA 15	EA Sports	5.7	988	83.97595124	2014	Sports	

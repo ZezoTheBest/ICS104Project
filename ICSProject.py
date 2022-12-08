@@ -4,7 +4,7 @@
 
 
 
-#This function displays a nicely formatted for the user. These print functions are placed in a function to avoid repetition.
+#This function displays a nicely formatted menu for the user. These print functions are placed in a function to avoid repetition.
 def menu():
 
     #prints a bold title for the menu
@@ -53,7 +53,7 @@ def add_game():
         if not 1 <= float(game_rating) <= 10:
             raise ValueError
     except ValueError:
-        print("The game rating should be a number between one and 10")
+        print("The game rating should be a number between 1 and 10")
         return
 
     # Ask for the number of reviews
@@ -128,7 +128,7 @@ def update_game():
                     raise ValueError
 
             except ValueError:  # display the error message
-                print("The game rating should be a number between one and 10.")
+                print("The game rating should be a number between 1 and 10.")
                 return
 
             # Assign the new game rating to the dictionary
@@ -319,11 +319,11 @@ with the given genre
 """
 
 
-def saving_in_new_file(genre):
+def saving_in_new_file(genre, dictionary):
     genre_dict = {}  # Create an empty dictionary
-    for key in game_dict:  # Iterates over the keys of the original dictionary
-        if genre.lower() == game_dict[key][6].lower():  # If the genre given exists in the dictionary
-            genre_dict[key] = game_dict[key]  # Add the key and value to the empty dictionary
+    for key in dictionary:  # Iterates over the keys of the original dictionary
+        if genre.lower() == dictionary[key][6].lower():  # If the genre given exists in the dictionary
+            genre_dict[key] = dictionary[key]  # Add the key and value to the empty dictionary
 
     if len(genre_dict) == 0:  # If the genre does not exist in the dictionary,display a message
         print("The genre you selected is not found.")
@@ -435,7 +435,7 @@ def main():
             else:  # If the genre doesnt consist fully of characters
                 print("Please enter a valid genre format.")
 
-            saving_in_new_file(genre)  # Save the genre in a new file
+            saving_in_new_file(genre, game_dict)  # Save the genre in a new file
 
         elif command.lower() == "q":  # If the menu input is Q , the user is done and exit the program
             done = True
